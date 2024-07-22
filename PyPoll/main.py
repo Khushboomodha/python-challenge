@@ -3,7 +3,7 @@ import csv
 from collections import Counter
 
 # Path to the CSV file
-csvpath = os.path.join(r"C:\Users\nirav\Desktop\Data Analytics Bootcamp 06.20.2024\Bootcamp_Khushboo\UTOR-VIRT-DATA-PT-06-2024-U-LOLC\03-Python\3\Activities\PyPoll\Resources", "election_data.csv")
+csvpath = os.path.join("Resources","election_data.csv")
 
 # Initialize variables to store data
 votes = []
@@ -67,7 +67,7 @@ print(f"Winner: {winner}")
 print("-------------------------")
 
 # Specify the output file path
-export_path = os.path.join(r"C:\Users\nirav\Desktop\Data Analytics Bootcamp 06.20.2024\Bootcamp_Khushboo\UTOR-VIRT-DATA-PT-06-2024-U-LOLC\03-Python\3\Activities\PyPoll\Resources", "PyPoll_FinalResults.txt")
+export_path = os.path.join("Analysis", "PyPoll_FinalResults.txt")
 
 # Write Election Results to the text file
 with open(export_path, 'w', newline='') as txt:

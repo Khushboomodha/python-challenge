@@ -1,8 +1,16 @@
+# First we'll import the os module
+# This will allow us to create file paths across operating systems
 import os
+
+# Module for reading CSV files
 import csv
 
-# Path to the CSV file
-csvpath = os.path.join(r"C:\Users\nirav\Desktop\Data Analytics Bootcamp 06.20.2024\Bootcamp_Khushboo\UTOR-VIRT-DATA-PT-06-2024-U-LOLC\03-Python\3\Activities\PyBank\Resources", "budget_data.csv")
+csvpath = os.path.join("Resources", "budget_data.csv")
+
+with open(csvpath) as csvfile:
+
+    # CSV reader specifies delimiter and variable that holds contents
+    csvreader = csv.reader(csvfile, delimiter=',')
 
 # Initialize variables for calculations
 total_months = 0
@@ -54,9 +62,18 @@ with open(csvpath, newline='') as csvfile:
 # Calculate the average of the changes in "Profit/Losses" over the entire period
 average_change = total_change_profits / (total_months - 1)
 
+# Print Financial Analysis to the terminal
+print("Financial Analysis")
+print("----------------------------")
+print(f"Total Months: {total_months}")
+print(f"Total: ${net_profit_loss}")
+print(f"Average Change: ${average_change:.2f}")
+print(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})")
+print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})")
 
-# Specify the output file path
-output_file = os.path.join(r"C:\Users\nirav\Desktop\Data Analytics Bootcamp 06.20.2024\Bootcamp_Khushboo\UTOR-VIRT-DATA-PT-06-2024-U-LOLC\03-Python\2\Activities\12-Stu_CensusZip\Resources", "PyBank_Final_Results.txt")
+
+# Set variable for output file
+output_file = os.path.join("Analysis","PyBank_Final_Results.txt")
 
 # Write Financial Analysis to the text file
 with open(output_file, 'w', encoding='utf-8') as txt:
@@ -67,12 +84,3 @@ with open(output_file, 'w', encoding='utf-8') as txt:
     txt.write(f"Average Change: ${average_change:.2f}\n")
     txt.write(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})\n")
     txt.write(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})\n")
-
-# Print Financial Analysis
-print("Financial Analysis")
-print("----------------------------")
-print(f"Total Months: {total_months}")
-print(f"Total: ${net_profit_loss}")
-print(f"Average Change: ${average_change:.2f}")
-print(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})")
-print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})")
